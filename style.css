@@ -1,0 +1,224 @@
+:root {
+    --time-size: 80px;
+    --label-size: 36px;
+    --message-size: 24px;
+    --button-border-radius: 10px;
+    --button-text-color: #fff;
+
+    --background-color: #ffa954; /* Default soft cream */
+    --controls-bg: rgba(255, 255, 255, 0.7); /* Default semi-transparent white */
+    --controls-border: rgba(255, 255, 255, 0.3); /* Subtle border */
+    --segment-bg: rgba(255, 255, 255, 0.7); /* Default semi-transparent white */
+    --segment-border: rgba(255, 255, 255, 0.3); /* Subtle border */
+    --display-bg: rgba(255, 255, 255, 0.8); /* Default semi-transparent white */
+    --display-text-color: #333; /* Neutral dark gray */
+    --button-bg: rgba(255, 255, 255, 0.8); /* Default semi-transparent white */
+    --button-hover-bg: rgba(255, 255, 255, 0.9); /* Slightly darker white */
+    --button-text-color: #333; /* Neutral dark gray */
+
+    --dragging-bg: rgba(173, 216, 230, 0.8); /* Soft pastel blue */
+    --drag-over-bg: rgba(240, 248, 255, 0.8); /* Soft pastel white-blue */
+    --time-color: #4a4a4a; /* Neutral dark gray */
+    --label-color: #4a4a4a; /* Neutral dark gray */
+    --message-color: #6a6a6a; /* Slightly lighter gray */
+
+    --font-family: 'comic sans ms','Arial', sans-serif; /* Default font family */
+}
+
+body {
+    font-family: var(--font-family);
+    background: var(--background-color);
+    color: var(--display-text-color);
+    margin: 0;
+    padding: 10px;
+
+}
+
+#controls {
+    background: var(--controls-bg);
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px var(--controls-border);
+    margin-bottom: 10px;
+    border: 2px solid var(--controls-border);
+    backdrop-filter: blur(10px); /* Adds a frosted glass effect */
+}
+
+#controls input,
+#controls button {
+    font-family: var(--font-family);
+    font-size: 16px;
+    border-radius: var(--button-border-radius);
+    border: none;
+    padding: 5px;
+}
+
+/* Align input rows */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Add spacing between rows */
+}
+
+.input-row {
+    display: flex;
+    align-items: center; /* Align label and input vertically */
+    gap: 10px; /* Add spacing between label and input */
+}
+
+/* Style labels */
+.input-label {
+    font-size: 16px;
+    color: var(--display-text-color);
+    width: 150px; /* Fixed width for labels to align inputs */
+    text-align: right; /* Align text to the right */
+}
+
+/* Style inputs */
+input[type="range"],
+input[type="color"] {
+    flex: 1; /* Allow inputs to take up remaining space */
+    max-width: 300px; /* Optional: Limit the maximum width */
+    height: 30px; /* Adjust height for better alignment */
+    border-radius: var(--button-border-radius);
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+input[type="range"] {
+    background: var(--button-bg);
+}
+
+input[type="color"] {
+    padding: 0;
+    background: var(--button-bg);
+}
+
+/* Button Styling */
+#controls button {
+    background-color: var(--button-bg);
+    color: var(--button-text-color);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#controls button:hover {
+    background-color: var(--button-hover-bg);
+    transform: scale(1.05);
+}
+
+#controls button:active {
+    transform: scale(0.95);
+}
+
+#segmentList {
+    background: var(--segment-bg);
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+#segmentList button {
+    font-family: var(--font-family);
+    font-size: 16px;
+    border-radius: var(--button-border-radius);
+    border: none;
+    padding: 5px;
+    margin: 2px;
+    background-color: var(--button-bg);
+    color: var(--button-text-color);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+#segmentList button:hover {
+    background-color: var(--button-hover-bg);
+    transform: scale(1.05);
+}
+#segmentList button:active {
+    transform: scale(0.95);
+}
+
+.segment-item {
+    background: var(--segment-bg);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px 0;
+    border: 2px solid var(--segment-border);
+}
+
+#display {
+    background: var(--display-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    height: auto;
+    border-radius: 10px;
+    border: var(--segment-border) solid 2px;
+    text-align: center;
+}
+
+#timeDisplay {
+    font-size: var(--time-size);
+    color: var(--time-color);
+}
+
+#labelDisplay {
+    font-size: var(--label-size);
+    margin-top: 10px;
+    color: var(--label-color);
+}
+
+#messageDisplay {
+    font-size: var(--message-size);
+    margin-top: 5px;
+    color: var(--message-color);
+}
+
+.fullscreen-mode #controls,
+.fullscreen-mode #segmentList {
+    display: none;
+}
+
+.fullscreen-mode #display {
+    height: 100vh;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--background-color);
+}
+
+.fullscreen-mode #timeDisplay {
+    font-size: var(--time-size, 80px);
+    color: var(--time-color);
+}
+
+.fullscreen-mode #labelDisplay {
+    font-size: var(--label-size, 36px);
+    margin-top: 10px;
+    color: var(--label-color);
+}
+
+.fullscreen-mode #messageDisplay {
+    font-size: var(--message-size, 24px);
+    margin-top: 5px;
+    color: var(--message-color);
+}
+
+.dragging {
+    opacity: 0.5;
+    background-color: var(--dragging-bg);
+}
+
+.drag-over {
+    border: 2px dashed var(--dragging-bg);
+    background-color: var(--drag-over-bg);
+}

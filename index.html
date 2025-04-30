@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Custom Timer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="controls">
+        <h2>Add Timer Segment</h2>
+        <input type="time" step="1" id="timeInput" value="01:00:00" />
+        <input type="text" id="labelInput" placeholder="Label" />
+        <input type="text" id="messageInput" placeholder="Message" />
+        <input type="text" id="endingMessageInput" placeholder="Ending Message" />
+        <button id="addSegmentBtn">Add Segment</button>
+        <button id="startBtn">Start Timer</button>
+        <button id="toggleModeBtn">Show Elapsed</button>
+        <div style="margin-top: 10px;" class="input-group">
+          <div class="input-row">
+              <label for="timeSizeSlider" class="input-label">Time Size:</label>
+              <input type="range" id="timeSizeSlider" min="30" max="200" value="80">
+          </div>
+          <div class="input-row">
+              <label for="labelSizeSlider" class="input-label">Label Size:</label>
+              <input type="range" id="labelSizeSlider" min="10" max="80" value="36">
+          </div>
+          <div class="input-row">
+              <label for="messageSizeSlider" class="input-label">Message Size:</label>
+              <input type="range" id="messageSizeSlider" min="10" max="50" value="24">
+          </div>
+        </div>
+        
+        <div style="margin-top: 20px;" class="input-group">
+            <div class="input-row">
+                <label for="backgroundColorPicker" class="input-label">Background Color:</label>
+                <input type="color" id="backgroundColorPicker" value="#ffeef8">
+            </div>
+            <div class="input-row">
+                <label for="timeColorPicker" class="input-label">Time Color:</label>
+                <input type="color" id="timeColorPicker" value="#333333">
+            </div>
+            <div class="input-row">
+                <label for="labelColorPicker" class="input-label">Label Color:</label>
+                <input type="color" id="labelColorPicker" value="#333333">
+            </div>
+            <div class="input-row">
+                <label for="messageColorPicker" class="input-label">Message Color:</label>
+                <input type="color" id="messageColorPicker" value="#666666">
+            </div>
+        </div>
+    </div>      
+
+    <div id="segmentList"></div>
+
+    <div id="display" onclick="toggleFullscreen()">
+        <div id="timeDisplay">00:00:00</div>
+        <div id="labelDisplay">Label</div>
+        <div id="messageDisplay">Message</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

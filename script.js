@@ -247,6 +247,7 @@ function startTimer() {
     }
 
     endingMessage = document.getElementById("endingMessageInput").value.trim() || endingMessage;
+    timerInterval = null;
     currentIndex = 0;
     startSegment(currentIndex);
 }
@@ -254,7 +255,6 @@ function startTimer() {
 function startSegment(index) {
     if (index >= segments.length) {
         clearInterval(timerInterval);
-        timerInterval = null;
         resetDisplay();
         labelDisplay.textContent = endingMessage;
         messageDisplay.textContent = "";

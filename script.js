@@ -129,6 +129,7 @@ function deleteSegment(index) {
     // Stop the timer if no segments are left
     if (segments.length === 0) {
         clearInterval(timerInterval);
+        timerInterval = null;
         resetDisplay();
     }
 }
@@ -254,9 +255,9 @@ function startTimer() {
 function startSegment(index) {
     if (index >= segments.length) {
         clearInterval(timerInterval);
+        timerInterval = null;
         resetDisplay();
         labelDisplay.textContent = endingMessage;
-        timerInterval = null;
         messageDisplay.textContent = "";
         return;
     }

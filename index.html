@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="controls">
+    <div id="controls" class="no-select">
         <h2>Add Timer Segment</h2>
         <input type="time" step="1" id="timeInput" value="01:00:00" />
         <input type="text" id="labelInput" placeholder="Label" />
@@ -52,7 +52,7 @@
 
     <div id="segmentList"></div>
 
-    <div id="display" onclick="toggleFullscreen()">
+    <div id="display" class="no-select" onclick="toggleFullscreen()">
         <div id="timeDisplay">00:00:00</div>
         <div id="labelDisplay">Label</div>
         <div id="messageDisplay">Message</div>

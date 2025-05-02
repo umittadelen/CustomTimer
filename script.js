@@ -249,6 +249,7 @@ function startTimer() {
 
     endingMessage = document.getElementById("endingMessageInput").value.trim() || endingMessage;
     currentIndex = 0;
+    toggleFullscreen();
     startSegment(currentIndex);
 }
 

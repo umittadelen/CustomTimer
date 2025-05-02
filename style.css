@@ -34,6 +34,10 @@ body {
 
 }
 
+.no-select {
+  user-select: none;
+}
+
 #controls {
     background: var(--controls-bg);
     padding: 15px;

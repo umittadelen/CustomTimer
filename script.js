@@ -6,6 +6,7 @@ let currentIndex = 0;
 let startTime;
 let timerInterval;
 let showElapsed = false;
+let wasFullscreenActivated = false;
 let endingMessage = "Yay! All done";
 let addSegmentBtnEditText = "Add Segment";
 let addSegmentBtnSaveText = "Save Changes";
@@ -233,6 +234,13 @@ function toggleFullscreen() {
     }
 }
 
+document.addEventListener("fullscreenchange", () => {
+    if (!document.fullscreenElement) {
+        document.body.classList.remove("fullscreen-mode");
+        wasFullscreenActivated = false;
+    }
+});
+
 // ========================
 // Timer Logic
 // ========================
@@ -249,7 +257,6 @@ function startTimer() {
 
     endingMessage = document.getElementById("endingMessageInput").value.trim() || endingMessage;
     currentIndex = 0;
-    toggleFullscreen();
     startSegment(currentIndex);
 }
 
@@ -260,6 +267,12 @@ function startSegment(index) {
         resetDisplay();
         labelDisplay.textContent = endingMessage;
         messageDisplay.textContent = "";
+
+        if (wasFullscreenActivated) {
+            toggleFullscreen();
+            wasFullscreenActivated = false;
+        }
+
         return;
     }
 
@@ -268,6 +281,12 @@ function startSegment(index) {
 
     labelDisplay.textContent = seg.label;
     messageDisplay.textContent = seg.message;
+
+    // 🖥️ Go fullscreen only at the first segment!
+    if (index === 0 && !(document.fullscreenElement || document.webkitFullscreenElement)) {
+        toggleFullscreen();
+        wasFullscreenActivated = true;
+    }
 
     clearInterval(timerInterval);
     timerInterval = setInterval(() => updateSegment(seg), 200);

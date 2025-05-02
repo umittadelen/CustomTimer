@@ -10,7 +10,7 @@
     --controls-border: rgba(255, 255, 255, 0.3); /* Subtle border */
     --segment-bg: rgba(255, 255, 255, 0.7); /* Default semi-transparent white */
     --segment-border: rgba(255, 255, 255, 0.3); /* Subtle border */
-    --display-bg: rgba(255, 255, 255, 0.8); /* Default semi-transparent white */
+    --display-bg: rgba(255, 255, 255, 0); /* Default semi-transparent white */
     --display-text-color: #333; /* Neutral dark gray */
     --button-bg: rgba(255, 255, 255, 0.8); /* Default semi-transparent white */
     --button-hover-bg: rgba(255, 255, 255, 0.9); /* Slightly darker white */

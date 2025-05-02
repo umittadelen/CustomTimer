@@ -254,6 +254,7 @@ function startTimer() {
 function startSegment(index) {
     if (index >= segments.length) {
         clearInterval(timerInterval);
+        timerInterval = null;
         resetDisplay();
         labelDisplay.textContent = endingMessage;
         messageDisplay.textContent = "";

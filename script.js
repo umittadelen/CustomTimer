@@ -6,11 +6,11 @@ let currentIndex = 0;
 let startTime;
 let timerInterval;
 let showElapsed = false;
-let endingMessage = "Yay! All done~ 🎉";
-let addSegmentBtnEditText = "Add Segment ➕";
-let addSegmentBtnSaveText = "Save Changes 💾";
-let showElapsedText = "Show Elapsed ⏱️";
-let showRemainingText = "Show Remaining ⏳";
+let endingMessage = "Yay! All done~";
+let addSegmentBtnEditText = "Add Segment";
+let addSegmentBtnSaveText = "Save Changes";
+let showElapsedText = "Show Elapsed";
+let showRemainingText = "Show Remaining";
 
 const appState = {
     draggedIndex: null,

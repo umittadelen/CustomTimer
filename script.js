@@ -6,7 +6,7 @@ let currentIndex = 0;
 let startTime;
 let timerInterval;
 let showElapsed = false;
-let endingMessage = "Yay! All done~";
+let endingMessage = "Yay! All done";
 let addSegmentBtnEditText = "Add Segment";
 let addSegmentBtnSaveText = "Save Changes";
 let showElapsedText = "Show Elapsed";
@@ -399,6 +399,6 @@ function resetInputFields() {
 
 function resetDisplay() {
     timeDisplay.textContent = "00:00:00";
-    labelDisplay.textContent = "Label~";
-    messageDisplay.textContent = "Message~";
+    labelDisplay.textContent = "Label";
+    messageDisplay.textContent = "Message";
 }
